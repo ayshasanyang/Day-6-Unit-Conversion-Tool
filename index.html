@@ -7,19 +7,37 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Unit Conversion Tool</h1>
-  <div class="converter">
-    <select id="conversion-type">
-      <option value="temperature">Temperature (°C to °F)</option>
-      <option value="length">Length (Meters to Feet)</option>
-      <option value="weight">Weight (Kilograms to Pounds)</option>
-    </select>
+  <div class="tabs">
+    <div class="tab-buttons">
+      <button class="tab-button active" data-tab="temperature">Temperature</button>
+      <button class="tab-button" data-tab="length">Length</button>
+      <button class="tab-button" data-tab="weight">Weight</button>
+    </div>
 
-    <input type="number" id="input-value" placeholder="Enter value">
+    <div id="temperature" class="tab-content active">
+      <h2>Temperature Conversion</h2>
+      <div class="converter">
+        <input type="number" id="temp-input" placeholder="Enter Celsius">
+        <div class="result" id="temp-result">Result: --</div>
+      </div>
+    </div>
 
-    <div class="result" id="result">Result: --</div>
+    <div id="length" class="tab-content">
+      <h2>Length Conversion</h2>
+      <div class="converter">
+        <input type="number" id="length-input" placeholder="Enter Meters">
+        <div class="result" id="length-result">Result: --</div>
+      </div>
+    </div>
+
+    <div id="weight" class="tab-content">
+      <h2>Weight Conversion</h2>
+      <div class="converter">
+        <input type="number" id="weight-input" placeholder="Enter Kilograms">
+        <div class="result" id="weight-result">Result: --</div>
+      </div>
+    </div>
   </div>
   <script src="scripts.js" type="text/javascript"></script>
- 
 </body>
 </html>
