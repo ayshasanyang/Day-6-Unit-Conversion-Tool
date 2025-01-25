@@ -1,41 +1,80 @@
-body {
-  font-family: Arial, sans-serif;
-  background: linear-gradient(135deg, #89f7fe, #66a6ff);
-  min-height: 100vh;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  color: #333;
-}
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(135deg, #6a11cb, #2575fc);
+      min-height: 100vh;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #333;
+    }
 
-h1 {
-  margin-bottom: 20px;
-  font-size: 2.5rem;
-}
+    .tabs {
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      width: 500px;
+      overflow: hidden;
+    }
 
-.converter {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  width: 300px;
-  text-align: center;
-}
+    .tab-buttons {
+      display: flex;
+    }
 
-.converter select, .converter input {
-  width: 100%;
-  padding: 10px;
-  margin: 10px 0;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 1rem;
-}
+    .tab-button {
+      flex: 1;
+      padding: 20px;
+      text-align: center;
+      cursor: pointer;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: white;
+      border: none;
+      background: linear-gradient(135deg, #ff9a9e, #893f2a);
+      transition: background 0.3s;
+    }
 
-.result {
-  margin-top: 20px;
-  font-size: 1.2rem;
-  font-weight: bold;
-  color: #444;
-}
+    .tab-button:nth-child(2) {
+      background: linear-gradient(135deg, #305ba0, #276f91);
+    }
+
+    .tab-button:nth-child(3) {
+      background: linear-gradient(135deg, #a37a42, #fcb69f);
+    }
+
+    .tab-button:hover {
+      opacity: 0.9;
+    }
+
+    .tab-button.active {
+      box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.2);
+    }
+
+    .tab-content {
+      padding: 30px;
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
+
+    .converter {
+      margin-top: 15px;
+    }
+
+    .converter input {
+      width: 100%;
+      padding: 15px;
+      margin: 15px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 1rem;
+    }
+
+    .result {
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #444;
+    }
