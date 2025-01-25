@@ -1,35 +1,56 @@
-const conversionType = document.getElementById('conversion-type');
-const inputValue = document.getElementById('input-value');
-const result = document.getElementById('result');
+    const tabButtons = document.querySelectorAll('.tab-button');
+    const tabContents = document.querySelectorAll('.tab-content');
 
-inputValue.addEventListener('input', updateConversion);
-conversionType.addEventListener('change', updateConversion);
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        // Remove active class from all buttons and contents
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => content.classList.remove('active'));
 
-function updateConversion() {
-  const type = conversionType.value;
-  const value = parseFloat(inputValue.value);
+        // Add active class to clicked button and corresponding content
+        button.classList.add('active');
+        document.getElementById(button.dataset.tab).classList.add('active');
+      });
+    });
 
-  if (isNaN(value)) {
-    result.textContent = 'Result: --';
-    return;
-  }
+    // Temperature Conversion
+    const tempInput = document.getElementById('temp-input');
+    const tempResult = document.getElementById('temp-result');
 
-  let convertedValue;
+    tempInput.addEventListener('input', () => {
+      const celsius = parseFloat(tempInput.value);
+      if (isNaN(celsius)) {
+        tempResult.textContent = 'Result: --';
+        return;
+      }
+      const fahrenheit = (celsius * 9 / 5) + 32;
+      tempResult.textContent = `Result: ${fahrenheit.toFixed(2)} °F`;
+    });
 
-  switch (type) {
-    case 'temperature':
-      convertedValue = (value * 9/5) + 32;
-      result.textContent = `Result: ${convertedValue.toFixed(2)} °F`;
-      break;
-    case 'length':
-      convertedValue = value * 3.28084;
-      result.textContent = `Result: ${convertedValue.toFixed(2)} Feet`;
-      break;
-    case 'weight':
-      convertedValue = value * 2.20462;
-      result.textContent = `Result: ${convertedValue.toFixed(2)} Pounds`;
-      break;
-    default:
-      result.textContent = 'Result: --';
-  }
-}
+    // Length Conversion
+    const lengthInput = document.getElementById('length-input');
+    const lengthResult = document.getElementById('length-result');
+
+    lengthInput.addEventListener('input', () => {
+      const meters = parseFloat(lengthInput.value);
+      if (isNaN(meters)) {
+        lengthResult.textContent = 'Result: --';
+        return;
+      }
+      const feet = meters * 3.28084;
+      lengthResult.textContent = `Result: ${feet.toFixed(2)} Feet`;
+    });
+
+    // Weight Conversion
+    const weightInput = document.getElementById('weight-input');
+    const weightResult = document.getElementById('weight-result');
+
+    weightInput.addEventListener('input', () => {
+      const kilograms = parseFloat(weightInput.value);
+      if (isNaN(kilograms)) {
+        weightResult.textContent = 'Result: --';
+        return;
+      }
+      const pounds = kilograms * 2.20462;
+      weightResult.textContent = `Result: ${pounds.toFixed(2)} Pounds`;
+    });
